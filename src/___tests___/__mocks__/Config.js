@@ -42,7 +42,7 @@ export default class Config {
     this.https = {
       enable: false
     };
-    this.user_agent = 'verdaccio/3.0.0-alpha.7';
+    this.user_agent = 'ppm/1.0.0';
     this.users = {};
     this.server_id = '5cf430af30a1';
     this.secret =

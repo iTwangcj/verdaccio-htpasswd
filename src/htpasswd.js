@@ -12,7 +12,7 @@ import {
 } from './utils';
 
 /**
- * HTPasswd - Verdaccio auth class
+ * HTPasswd - ppm auth class
  */
 export default class HTPasswd {
   /**
@@ -24,11 +24,12 @@ export default class HTPasswd {
   users: {};
   stuff: {};
   config: {};
-  verdaccioConfig: {};
+  ppmConfig: {};
   maxUsers: number;
   path: string;
   logger: {};
   lastTime: any;
+
   // constructor
   constructor(
     config: {
@@ -48,13 +49,13 @@ export default class HTPasswd {
     this.config = config;
     this.stuff = stuff;
 
-    // verdaccio logger
+    // ppm logger
     this.logger = stuff.logger;
 
-    // verdaccio main config object
-    this.verdaccioConfig = stuff.config;
+    // ppm main config object
+    this.ppmConfig = stuff.config;
 
-    // all this "verdaccio_config" stuff is for b/w compatibility only
+    // all this "ppm_config" stuff is for b/w compatibility only
     this.maxUsers = config.max_users ? config.max_users : Infinity;
 
     this.lastTime = null;
@@ -62,24 +63,21 @@ export default class HTPasswd {
     let { file } = config;
 
     if (!file) {
-      file = this.verdaccioConfig.users_file;
+      file = this.ppmConfig.users_file;
     }
 
     if (!file) {
       throw new Error('should specify "file" in config');
     }
 
-    this.path = Path.resolve(
-      Path.dirname(this.verdaccioConfig.self_path),
-      file
-    );
+    this.path = Path.resolve(Path.dirname(this.ppmConfig.self_path), file);
   }
 
   /**
    * authenticate - Authenticate user.
    * @param {string} user
    * @param {string} password
-   * @param {function} cd
+   * @param {function} cb
    * @returns {function}
    */
   authenticate(user: string, password: string, cb: Function) {

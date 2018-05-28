@@ -1,12 +1,12 @@
 // @flow
 
 /** Node.js Crypt(3) Library
-  Inspired by (and intended to be compatible with) sendanor/crypt3
-  see https://github.com/sendanor/node-crypt3
-  The key difference is the removal of the dependency on the unix crypt(3) function
-  which is not platform independent, and requires compilation. Instead, a pure
-  javascript version is used.
-*/
+ Inspired by (and intended to be compatible with) sendanor/crypt3
+ see https://github.com/sendanor/node-crypt3
+ The key difference is the removal of the dependency on the unix crypt(3) function
+ which is not platform independent, and requires compilation. Instead, a pure
+ javascript version is used.
+ */
 
 import crypt from 'unix-crypt-td-js';
 import crypto from 'crypto';

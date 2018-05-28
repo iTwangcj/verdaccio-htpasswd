@@ -1,4 +1,4 @@
-import * as locker from '@verdaccio/file-locking';
+import * as locker from '@fem/file-locking';
 
 import {
   verifyPassword,

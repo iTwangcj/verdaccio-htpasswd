@@ -4,7 +4,7 @@ import crypto from 'crypto';
 import crypt3 from './crypt3';
 import md5 from 'apache-md5';
 import bcrypt from 'bcryptjs';
-import * as locker from '@verdaccio/file-locking';
+import * as locker from '@fem/file-locking';
 
 // this function neither unlocks file nor closes it
 // it'll have to be done manually later
@@ -101,6 +101,8 @@ export function addUserToHTPasswd(
 /**
  * Sanity check for a user
  * @param {string} user
+ * @param {object} password
+ * @param {object} verifyFn
  * @param {object} users
  * @param {number} maxUsers
  * @returns {object}
