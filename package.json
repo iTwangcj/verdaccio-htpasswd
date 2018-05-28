@@ -1,6 +1,6 @@
 {
 	"name": "ppm-htpasswd",
-	"version": "0.0.4",
+	"version": "1.0.0",
 	"description": "ppm htpasswd auth plugin",
 	"main": "lib/index.js",
 	"keywords": [
